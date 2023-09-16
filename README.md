@@ -1,4 +1,5 @@
 Utilities
+
 File Organizer (file_sorter.py)
 
 Organize files by extensions and other criteria.
@@ -24,7 +25,7 @@ Clone the Repository
 
 Open a command prompt or terminal and execute the following command to clone the repository:
 
-git clone https://github.com/paulmusquaro/py_delegator.git
+git clone https://github.com/Serhiyko69/py_delegator
 Run the Chosen Utility
 
 Navigate to the folder with the desired utility and execute the respective file using Python with the following commands:
@@ -42,7 +43,7 @@ Install via pip
 
 Open a command prompt or terminal and execute the following command:
 
-pip install -i https://test.pypi.org/simple/ py-delegator==0.1.5
+pip install -i https://test.pypi.org/simple/ py-delegator==0.1.9
 Run the Chosen Utility
 
 After installation is complete, you can run the desired utility from anywhere in your terminal by simply invoking its command.
