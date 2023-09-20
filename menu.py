@@ -21,19 +21,15 @@ class UserInterface(ABC):
 
 class ConsoleUserInterface(UserInterface):
     def display_menu(self):
-        # Реалізуйте виведення меню користувачу в консоль
         pass
 
     def display_contacts(self, contacts):
-        # Реалізуйте виведення контактів користувачу в консоль
         pass
 
     def display_notes(self, notes):
-        # Реалізуйте виведення нотаток користувачу в консоль
         pass
 
     def display_commands(self):
-        # Реалізуйте виведення доступних команд користувачу в консоль
         pass
 
 
@@ -48,8 +44,7 @@ class Menu:
         }
         self.user_interface = user_interface
 
-    # Інші методи класу Menu залишаються без змін
-
+ 
     def make_decision(self, choice):
         module_name, function_name = self.choices.get(choice)
 
