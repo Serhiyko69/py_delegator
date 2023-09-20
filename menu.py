@@ -1,14 +1,44 @@
-import importlib
 import os
-from calend import calend_main
-from Addressbook import start
+from abc import ABC, abstractmethod
 from notebook.nb_main import NoteManager
-from file_sorter import start
-from exchanger import ex_main
+import importlib
+class UserInterface(ABC):
+    @abstractmethod
+    def display_menu(self):
+        pass
+
+    @abstractmethod
+    def display_contacts(self, contacts):
+        pass
+
+    @abstractmethod
+    def display_notes(self, notes):
+        pass
+
+    @abstractmethod
+    def display_commands(self):
+        pass
+
+class ConsoleUserInterface(UserInterface):
+    def display_menu(self):
+        # Реалізуйте виведення меню користувачу в консоль
+        pass
+
+    def display_contacts(self, contacts):
+        # Реалізуйте виведення контактів користувачу в консоль
+        pass
+
+    def display_notes(self, notes):
+        # Реалізуйте виведення нотаток користувачу в консоль
+        pass
+
+    def display_commands(self):
+        # Реалізуйте виведення доступних команд користувачу в консоль
+        pass
 
 
 class Menu:
-    def __init__(self):
+    def __init__(self, user_interface):
         self.choices = {
             1: ("calend", "calend_main"),
             2: ("Addressbook", "start"),
@@ -16,13 +46,16 @@ class Menu:
             4: ("file_sorter", "start"),
             5: ("exchanger", "ex_main")
         }
+        self.user_interface = user_interface
+
+    # Інші методи класу Menu залишаються без змін
 
     def make_decision(self, choice):
         module_name, function_name = self.choices.get(choice)
-        
+
         if not module_name:
             return
-        
+
         if choice == 3:
             note_folder = "notebook/notes"
             note_manager = NoteManager(note_folder)
@@ -30,7 +63,6 @@ class Menu:
             return True
 
         try:
-
             if choice == 4:
                 directory_path = input("Enter the path to directory: ")
                 if os.path.exists(directory_path) and os.path.isdir(directory_path):
@@ -55,16 +87,15 @@ def main():
     print("5. Exchanger")
     print("6. Exit")
 
-    menu = Menu()
-    option_3_called = False
+    user_interface = ConsoleUserInterface()  # Створення об'єкту інтерфейсу
+    menu = Menu(user_interface)  # Передача об'єкту інтерфейсу в меню
 
     while True:
         try:
             choice = int(input("Enter your choice (1-6): "))
             if choice == 6:
                 break
-            if not option_3_called or (option_3_called and choice != 4):
-                option_3_called = menu.make_decision(choice)
+            menu.make_decision(choice)  # Виклик методу make_decision з об'єкта menu
         except ValueError:
             print("Invalid input. Please enter a number between 1 and 6.")
 
