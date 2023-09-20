@@ -48,7 +48,7 @@ class Menu:
         }
         self.user_interface = user_interface
 
-    # Інші методи класу Menu залишаються без змін
+
 
     def make_decision(self, choice):
         module_name, function_name = self.choices.get(choice)
