@@ -101,3 +101,59 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+   # +------------------+
+   # |     UserInterface|<<abstract>>
+   # +------------------+
+   # | <<abstractmethod>>display_menu()
+   # | <<abstractmethod>>display_contacts(contacts)
+   # | <<abstractmethod>>display_notes(notes)
+   # | <<abstractmethod>>display_commands()
+   # +------------------+
+   #           /_\
+   #            |
+   #            |
+   #            |
+   #            |
+   #            |
+   #            |
+   #            |
+   #            v
+   # +-----------------------+
+   # | ConsoleUserInterface  |
+   # +-----------------------+
+   # | display_menu()        |
+   # | display_contacts(contacts) |
+   # | display_notes(notes) |
+   # | display_commands()    |
+   # +-----------------------+
+   #            |
+   #            |
+   #            |
+   #            |
+   #            |
+   #            |
+   #            |
+   #            v
+   # +-----------------------+
+   # |         Menu          |
+   # +-----------------------+
+   # | choices               |
+   # | user_interface        |
+   # | make_decision(choice) |
+   # +-----------------------+
+   #            |
+   #            |
+   #            |
+   #            |
+   #            |
+   #            |
+   #            |
+   #            v
+   # +------------------------+
+   # |    Module Functions    |
+   # +------------------------+
+   # | (Various functions in  |
+   # | different modules)     |
+   # +------------------------+
